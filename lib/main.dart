@@ -56,8 +56,11 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
+  int _counter2 = 0;
 
   void _incrementCounter() {
+    int algo = 1;
+    _counter = _counter+algo;
     setState(() {
       // This call to setState tells the Flutter framework that something has
       // changed in this State, which causes it to rerun the build method below
@@ -65,6 +68,12 @@ class _MyHomePageState extends State<MyHomePage> {
       // _counter without calling setState(), then the build method would not be
       // called again, and so nothing would appear to happen.
       _counter++;
+    });
+  }
+
+  void _decrementCounter(){
+    setState(() {
+      _counter2--;
     });
   }
 
@@ -112,14 +121,29 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headlineMedium,
             ),
+            Text(
+              '$_counter2',
+                style: Theme.of(context).textTheme.headlineMedium,
+            ),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: <Widget>[
+        FloatingActionButton(
+        onPressed: _decrementCounter,
+        tooltip: 'Decrement',
+        child: const Icon(Icons.remove),
+      ),
+      const SizedBox(width: 10), // Espacio entre los botones flotantes
+      FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      ),
+      ],
+      ),// This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
