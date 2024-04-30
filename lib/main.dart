@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Guess Games',
       theme: ThemeData(
         // This is the theme of your application.
         //
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Guess Games'),
     );
   }
 }
@@ -57,6 +57,12 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
   int _counter2 = 0;
+
+
+@override
+void initState(){
+  super.initState();
+}
 
   void _incrementCounter() {
     int algo = 1;
@@ -114,6 +120,12 @@ class _MyHomePageState extends State<MyHomePage> {
           // wireframe for each widget.
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            /*TextField(
+              controller: this.controller,
+              keyboardType: TextInputType.number,
+                decoration: InputDecoration(
+            hintText: "Numero",),
+            ),*/
             const Text(
               'You have pushed the button this many times:',
             ),
